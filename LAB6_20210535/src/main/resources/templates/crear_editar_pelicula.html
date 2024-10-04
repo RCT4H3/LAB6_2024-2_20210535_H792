@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Película</title>
+</head>
+<body>
+<h1>Película</h1>
+<form action="newMovie" method="post" th:object="${pelicula}">
+    <h3>Título de la película</h3>
+    <input th:field="*{titulo}" type="text" class="form-control" th:classappend="${#fields.hasErrors('titulo')?'is-invalid':''}">
+    <div class="invalid-feedback" th:if="${#fields.hasErrors('titulo')}"></div>
+
+    <h3>Fecha de estreno</h3>
+    <input type="date" name="fechaEstreno">
+
+    <h3>Duración (minutos)</h3>
+    <input type="number" name="duracionMinutos">
+
+    <button type="submit">Hecho</button>
+</form>
+</body>
+</html>

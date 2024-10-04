@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de directores</title>
+</head>
+<body>
+<table class="table table-striped table-hover table-bordered align-middle">
+    <thead class="table-dark">
+    <a th:href="@{crearPelicula}">Crear película</a>
+    <tr>
+        <th>#</th>
+        <th>Nombre</th>
+        <th>Teléfono</th>
+        <th>Nacionalidad</th>
+        <th>Eliminar</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="direc, info : ${listaDirectores}">
+        <td th:text="${info.index + 1}"></td>
+        <td th:text="${direc.getNombre()}"></td>
+        <td th:text="${direc.getTelefono()}"></td>
+        <td th:text="${direc.getNacionalidad()}"></td>
+        <td><a th:href="@{eliminarDirector/{id}(id=${direc.getDirectorId()})}">Eliminar</a></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

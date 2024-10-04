@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Película</title>
+</head>
+<body>
+<h1>Película</h1>
+<form action="newDirector" method="post" th:object="${director}">
+    <h3>Nombre del director</h3>
+    <input th:field="*{nombre}" type="text" class="form-control" th:classappend="${#fields.hasErrors('nombre')?'is-invalid':''}">
+    <div class="invalid-feedback" th:if="${#fields.hasErrors('nombre')}"></div>
+
+    <h3>Nacionalidad del director</h3>
+    <input type="date" name="nacionalidad">
+
+    <h3>Teléfono</h3>
+    <input type="number" name="telefono">
+
+    <button type="submit">Hecho</button>
+</form>
+</body>
+</html>
